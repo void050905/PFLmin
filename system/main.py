@@ -401,18 +401,18 @@ if __name__ == "__main__":
     parser.add_argument('-data', "--dataset", type=str, default="MNIST")
     parser.add_argument('-ncl', "--num_classes", type=int, default=10)
     parser.add_argument('-m', "--model", type=str, default="CNN")
-    parser.add_argument('-lbs', "--batch_size", type=int, default=10)
-    parser.add_argument('-lr', "--local_learning_rate", type=float, default=0.005,
+    parser.add_argument('-lbs', "--batch_size", type=int, default=40)
+    parser.add_argument('-lr', "--local_learning_rate", type=float, default=0.001,
                         help="Local learning rate")
     parser.add_argument('-ld', "--learning_rate_decay", type=bool, default=False)
     parser.add_argument('-ldg', "--learning_rate_decay_gamma", type=float, default=0.99)
-    parser.add_argument('-gr', "--global_rounds", type=int, default=2000)
+    parser.add_argument('-gr', "--global_rounds", type=int, default=1000)
     parser.add_argument('-tc', "--top_cnt", type=int, default=100, 
                         help="For auto_break")
     parser.add_argument('-ls', "--local_epochs", type=int, default=1, 
                         help="Multiple update steps in one local epoch.")
     parser.add_argument('-algo', "--algorithm", type=str, default="FedAvg")
-    parser.add_argument('-jr', "--join_ratio", type=float, default=1.0,
+    parser.add_argument('-jr', "--join_ratio", type=float, default=0.2,
                         help="Ratio of clients per round")
     parser.add_argument('-rjr', "--random_join_ratio", type=bool, default=False,
                         help="Random ratio of clients per round")
@@ -453,7 +453,7 @@ if __name__ == "__main__":
     parser.add_argument('-mu', "--mu", type=float, default=0.0)
     parser.add_argument('-K', "--K", type=int, default=5,
                         help="Number of personalized training steps for pFedMe")
-    parser.add_argument('-lrp', "--p_learning_rate", type=float, default=0.01,
+    parser.add_argument('-lrp', "--p_learning_rate", type=float, default=0.001,
                         help="personalized learning rate to caculate theta aproximately using K steps")
     # FedFomo
     parser.add_argument('-M', "--M", type=int, default=5,
@@ -466,11 +466,11 @@ if __name__ == "__main__":
                         help="lambda/sqrt(GLOABL-ITRATION) according to the paper")
     parser.add_argument('-sg', "--sigma", type=float, default=1.0)
     # APFL
-    parser.add_argument('-al', "--alpha", type=float, default=1.0)
+    parser.add_argument('-al', "--alpha", type=float, default=0.01)
     # Ditto / FedRep
     parser.add_argument('-pls', "--plocal_epochs", type=int, default=1)
     # MOON / FedCAC / FedLC
-    parser.add_argument('-tau', "--tau", type=float, default=1.0)
+    parser.add_argument('-tau', "--tau", type=float, default=4.0)
     # FedBABU
     parser.add_argument('-fte', "--fine_tuning_epochs", type=int, default=10)
     # APPLE
